@@ -10,7 +10,7 @@ Deno.test("scan", async (t) => {
         async () => {
           const dataFromFile = await parseFileContainingGroups(
             pathToFile,
-            "test/passeport.data.mock"
+            "test/passeport.data.mock",
           );
           const expectedData = [
             "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm",
@@ -19,7 +19,7 @@ Deno.test("scan", async (t) => {
             "hcl:#cfa07d eyr:2025 pid:166559648 iyr:2011 ecl:brn hgt:59in",
           ];
           assertEquals(dataFromFile, expectedData);
-        }
+        },
       );
     });
   });

@@ -1,11 +1,10 @@
 # AdventOfCode2021
-Advent of code 2021 participation : https://adventofcode.com/
 
+Advent of code 2021 participation : https://adventofcode.com/
 
 # How to use
 
-## Install Deno 
-
+## Install Deno
 
 Shell (Mac, Linux):
 
@@ -37,8 +36,8 @@ choco install deno
 scoop install deno
 ```
 
-
 ## Run a solution for a day
+
 Simply replace day by the day you want
 
 ```sh
@@ -46,6 +45,7 @@ deno run -A <day>/main.ts
 ```
 
 ## Run the tests for every AdventOfCode days
+
 At the project root launch:
 
 ```sh

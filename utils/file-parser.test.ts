@@ -21,10 +21,10 @@ Deno.test("parseFileAsArray", async (t) => {
           ];
           const array = await parseFileAsArray(
             urlToCurrentFile,
-            "mocks/mock-file"
+            "mocks/mock-file",
           );
           assertEquals(array, expectedArray);
-        }
+        },
       );
     });
     await t.step("When the file is empty", async (t) => {
@@ -32,7 +32,7 @@ Deno.test("parseFileAsArray", async (t) => {
         const expectedArray: string[] = [];
         const array = await parseFileAsArray(
           urlToCurrentFile,
-          "mocks/mock-file-empty"
+          "mocks/mock-file-empty",
         );
         assertEquals(array, expectedArray);
       });

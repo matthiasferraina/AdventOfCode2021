@@ -1,8 +1,8 @@
-import { join, fromFileUrl } from "../deps.ts";
+import { fromFileUrl, join } from "../deps.ts";
 
 export async function parseFileAsArray(
   absolutePath: string,
-  relativePath: string
+  relativePath: string,
 ): Promise<Array<string>> {
   const pathToFileToRead = getAbsoluteFilePath(absolutePath, relativePath);
 
@@ -19,7 +19,7 @@ export async function parseFileAsArray(
 
 export function getAbsoluteFilePath(
   absoluteUrl: string,
-  relativePath: string
+  relativePath: string,
 ): string {
   const absolutePath = fromFileUrl(absoluteUrl);
   const pathToFileToRead = join(absolutePath, "..", relativePath);
@@ -28,7 +28,7 @@ export function getAbsoluteFilePath(
 
 export async function parseFileContainingGroups(
   absoluteUrl: string,
-  relativePath: string
+  relativePath: string,
 ): Promise<Array<string>> {
   const data = await parseFileAsArray(absoluteUrl, relativePath);
   return data

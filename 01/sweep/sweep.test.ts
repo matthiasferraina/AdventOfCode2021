@@ -12,11 +12,11 @@ Deno.test("sweep", async (t) => {
           const expectedMeasurementCount = 7;
           const dataFromFile = await parseFileAsArray(
             pathToFile,
-            "test/sweep.data.mock"
+            "test/sweep.data.mock",
           );
           const data = dataFromFile.map(Number);
           assertEquals(sweep(data), expectedMeasurementCount);
-        }
+        },
       );
     });
   });
@@ -33,13 +33,13 @@ Deno.test("sweepWindow", async (t) => {
             const expectedMeasurementCount = 5;
             const dataFromFile = await parseFileAsArray(
               pathToFile,
-              "test/sweep.data.mock"
+              "test/sweep.data.mock",
             );
             const data = dataFromFile.map(Number);
             assertEquals(sweepWindow(data), expectedMeasurementCount);
-          }
+          },
         );
-      }
+      },
     );
   });
 });

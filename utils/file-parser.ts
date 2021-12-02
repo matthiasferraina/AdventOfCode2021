@@ -17,8 +17,29 @@ export async function parseFileAsArray(
   return strData.split("\n");
 }
 
-export function getAbsoluteFilePath(absoluteUrl: string, relativePath: string) {
+export function getAbsoluteFilePath(
+  absoluteUrl: string,
+  relativePath: string
+): string {
   const absolutePath = fromFileUrl(absoluteUrl);
   const pathToFileToRead = join(absolutePath, "..", relativePath);
   return pathToFileToRead;
+}
+
+export async function parseFileContainingGroups(
+  absoluteUrl: string,
+  relativePath: string
+): Promise<Array<string>> {
+  const data = await parseFileAsArray(absoluteUrl, relativePath);
+  return data
+    .reduce((acc, curr) => {
+      if (curr) {
+        acc += `${curr} `;
+      } else {
+        acc += ";#@";
+      }
+      return acc;
+    }, "")
+    .split(";#@")
+    .map((el) => el.trim());
 }

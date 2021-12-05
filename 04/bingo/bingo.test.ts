@@ -95,9 +95,9 @@ Deno.test("computeBingoSum", async (t) => {
           const drawnNumber = 22;
           assertEquals(
             computeBingoSum(bingoGrid, array, drawnNumber),
-            (12 + 20 + 15 + 19 + 5 + 7 + 24 + 0) * 22
+            (12 + 20 + 15 + 19 + 5 + 7 + 24 + 0) * 22,
           );
-        }
+        },
       );
     });
 
@@ -115,9 +115,9 @@ Deno.test("computeBingoSum", async (t) => {
           const drawnNumber = 19;
           assertEquals(
             computeBingoSum(bingoGrid, array, drawnNumber),
-            (1 + 12 + 20 + 15 + 19 + 5 + 7 + 24) * 19
+            (1 + 12 + 20 + 15 + 19 + 5 + 7 + 24) * 19,
           );
-        }
+        },
       );
     });
     await t.step("When it has no a winning row or col", async (t) => {
@@ -135,4 +135,3 @@ Deno.test("computeBingoSum", async (t) => {
     });
   });
 });
-

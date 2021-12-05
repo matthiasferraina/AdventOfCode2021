@@ -14,8 +14,8 @@ export function formatData(data: string[]) {
       formattedGrid.push(
         element.slice(
           0 + index * gridDimension,
-          gridDimension + index * gridDimension
-        )
+          gridDimension + index * gridDimension,
+        ),
       );
     }
     formattedBingoGrids.push(formattedGrid);
@@ -31,7 +31,7 @@ export const assertArrayIsBingo = (array: string[]): boolean => {
   const expectedTokens = array.length;
   const tokensCount = array.reduce(
     (acc, curr) => (curr === "W" ? acc + 1 : acc),
-    0
+    0,
   );
   return tokensCount === expectedTokens;
 };
@@ -60,7 +60,7 @@ export const assertGridIsBingo = (grid: string[][]): boolean => {
 export const computeBingoSum = (
   bingoGrid: number[][],
   bingoResult: string[][],
-  drawnNumber: number
+  drawnNumber: number,
 ): number | null => {
   if (!assertGridIsBingo(bingoResult)) {
     return null;

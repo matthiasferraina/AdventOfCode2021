@@ -1,4 +1,4 @@
-import { formatData,computeBingoSum } from "./bingo/bingo.ts";
+import { computeBingoSum, formatData } from "./bingo/bingo.ts";
 
 export function puzzle1(data: string[]): number {
   // format data
@@ -36,5 +36,3 @@ export function puzzle1(data: string[]): number {
 
   return 0;
 }
-
-

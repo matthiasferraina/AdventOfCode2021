@@ -1,8 +1,8 @@
 import { computeBingoSum, formatData } from "./bingo/bingo.ts";
 
 export function puzzle2(data: string[]): number {
-   // format data
-   const {
+  // format data
+  const {
     drawnNumbers,
     formattedBingoGrids,
     resultGrid,

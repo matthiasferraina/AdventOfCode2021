@@ -1,53 +1,28 @@
-export type FishNumber = {
-  number: number;
-  occurences: number;
-};
+let cycles = 18;
 
 export function puzzle2(data: string[]): number {
-  // format data
-  const lanternfishs = data
-    .map((el) => el.split(","))
-    .flat()
-    .map(
-      (el) =>
-        ({
-          number: Number(el),
-          occurences: 1,
-        } as FishNumber)
-    );
-  console.log(
-    "🚀 ~ file: main.puzzle2.ts ~ line 13 ~ puzzle1 ~ lanternfishs",
-    lanternfishs
+  let fishCounter: Record<string, number> = {};
+  const lanternfishs = data.map((el) => el.split(",").map(Number)).flat();
+
+  lanternfishs.forEach(
+    (el) => (fishCounter[el] = fishCounter[el] ? fishCounter[el] + 1 : 1)
   );
 
-  let cycles = 18;
-
   while (cycles > 0) {
-    makeLanternFishLove(lanternfishs);
+    const newLanternFishs: Record<string, number> = {};
+    Object.keys(fishCounter)
+      .sort((a, b) => Number(b) - Number(a))
+      .forEach((key: string) => {
+        if (Number(key) !== 0) {
+          newLanternFishs[Number(key) - 1] = fishCounter[key];
+        } else {
+          newLanternFishs["6"] = (newLanternFishs["6"] || 0) + fishCounter[key];
+        }
+      });
 
+    if (fishCounter["0"]) newLanternFishs["8"] = fishCounter["0"];
+    fishCounter = newLanternFishs;
     cycles--;
   }
-
-  console.log(lanternfishs);
-
-  return 0;
+  return Object.values(fishCounter).reduce((a: number, b: number) => a + b, 0);
 }
-
-const makeLanternFishLove = (lanternfishs: FishNumber[]): void => {
-  for (let i = 0; i < lanternfishs.length; i++) {
-    console.log(lanternfishs);
-    const agregatedFishs = lanternfishs.reduce(
-      (acc: FishNumber[], curr: FishNumber): FishNumber[] => {
-        const existingFishNumber = acc.filter(
-          (el: FishNumber) => el.number === curr.number
-        );
-        return (existingFishNumber[0].occurences += curr.occurences);
-      },
-      []
-    );
-    console.log(
-      "🚀 ~ file: main.puzzle2.ts ~ line 42 ~ agregatedFishs ~ agregatedFishs",
-      agregatedFishs
-    );
-  }
-};

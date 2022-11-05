@@ -9,3 +9,6 @@ const data = dataFromFile.map(Number);
 
 const sonarSweep = sweep(data);
 const sonarSweepWindow = sweepWindow(data);
+
+console.log("🚀 ~ file: main.ts ~ line 11 ~ sonarSweep", sonarSweep)
+console.log("🚀 ~ file: main.ts ~ line 12 ~ sonarSweepWindow", sonarSweepWindow)

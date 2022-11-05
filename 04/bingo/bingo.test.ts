@@ -56,15 +56,15 @@ Deno.test("transposeArray", async (t) => {
   await t.step("Given an array", async (t) => {
     await t.step("Whenit has number values", async (t) => {
       const array = [
-        [1, 1, 1],
-        [2, 2, 2],
-        [3, 3, 3],
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
       ];
       await t.step("Then it should return the transposedArray", () => {
         const expectedArray = [
-          [1, 2, 3],
-          [1, 2, 3],
-          [1, 2, 3],
+          [1, 4, 7],
+          [2, 5, 8],
+          [3, 6, 9],
         ];
         assertEquals(transposeArray(array), expectedArray);
       });
